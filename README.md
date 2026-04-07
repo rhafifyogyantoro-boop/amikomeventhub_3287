@@ -6,12 +6,14 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
-## Link Hosting 
-https://amikomeventhub-3287-main-lewupy.free.laravel.cloud/
+
 
 ## Me
 Nama   : Rhafif Yogiantoro
 Nim    : 24.12.3287    
+
+## Link Hosting 
+https://amikomeventhub-3287-main-lewupy.free.laravel.cloud/
 
 ## About Laravel
 
