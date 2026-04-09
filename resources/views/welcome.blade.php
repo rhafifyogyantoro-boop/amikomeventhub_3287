@@ -6,6 +6,6 @@
     <title>Uji Coba</title>
 </head>
 <body>
-    <h1>Test</h1>
+    <h1>Cihuy</h1>
 </body>
 </html>
