@@ -17,3 +17,15 @@ Route::get('/contact', function () {
 Route::get('/events', function () {
     return view('events');
 });
+
+Route::get('/bantuan', function () {
+    return view('bantuan');
+});
+
+Route::get('/katalog', function () {
+    return view('katalog');
+});
+
+Route::get('/profil', function () {
+    return view('profil');
+});
