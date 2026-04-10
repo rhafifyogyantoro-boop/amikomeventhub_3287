@@ -11,7 +11,7 @@ Route::get('/', function () {
 });
 
 Route::get('/contact', function () {
-    return view('kantak');
+    return view('contact');
 });
 
 Route::get('/events', function () {
