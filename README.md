@@ -15,6 +15,16 @@ Nim    : 24.12.3287
 ## Link Hosting 
 https://amikomeventhub-3287-main-lewupy.free.laravel.cloud/
 
+## Link Tugas 
+
+2.Tugas 2 DB 
+Halaman Dashboard : https://amikomeventhub-3287-main-lewupy.free.laravel.cloud/admin
+Halaman Event: https://amikomeventhub-3287-main-lewupy.free.laravel.cloud/admin-events.html
+Halaman Transaksi : https://amikomeventhub-3287-main-lewupy.free.laravel.cloud/admin-transactions.html
+Halaman Beranda : https://amikomeventhub-3287-main-lewupy.free.laravel.cloud/
+Halaman Detail Event : https://amikomeventhub-3287-main-lewupy.free.laravel.cloud/event-detail.html
+Halaman Checkout : https://amikomeventhub-3287-main-lewupy.free.laravel.cloud/checkout.html
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
