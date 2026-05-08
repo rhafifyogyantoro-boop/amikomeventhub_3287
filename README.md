@@ -28,6 +28,14 @@ https://amikomeventhub-3287-main-lewupy.free.laravel.cloud/
 | Detail Event | https://amikomeventhub-3287-main-lewupy.free.laravel.cloud/event-detail.html |
 | Checkout | https://amikomeventhub-3287-main-lewupy.free.laravel.cloud/checkout.html |
 
+### 3. Tugas 4 DB
+
+| Fitur | Link |
+|-------|------|
+| Kelola Events | https://amikomeventhub-3287-main-lewupy.free.laravel.cloud/admin/events |
+| Create Event | https://amikomeventhub-3287-main-lewupy.free.laravel.cloud/admin/events/create |
+| Edit Event | https://amikomeventhub-3287-main-lewupy.free.laravel.cloud/admin/events/1/edit |
+
 ---
 ## About Laravel
 
