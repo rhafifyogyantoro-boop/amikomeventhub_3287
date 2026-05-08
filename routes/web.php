@@ -7,6 +7,11 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\EventController as AdminEventController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\Admin\EventController as EventAdminController; 
+
+Route::prefix('admin')->name('admin.')->group(function () { 
+    Route::resource('events', EventAdminController::class); 
+});
 
 
 
