@@ -75,7 +75,7 @@
             </div>
         </div>
         <div class="max-w-7xl mx-auto pt-12 mt-12 border-t border-indigo-800 text-center text-indigo-400 text-sm">
-            &copy; 2026 AmikomEventHub. Built with Laravel & Tailwind CSS. Rhafif Ygiantoro 24.12.3287.
+            &copy; 2026 AmikomEventHub. Built with Laravel & Tailwind CSS. Rhafif Yogiantoro 24.12.3287.
         </div>
     </footer>
 
