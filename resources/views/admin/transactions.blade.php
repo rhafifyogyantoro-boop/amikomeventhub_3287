@@ -1,126 +1,159 @@
-
 @extends('layouts.admin')
 @section('content')
+<div class="flex justify-between items-center mb-10">
+    <div>
+        <h1 class="text-3xl font-black">Dashboard</h1>
+        <p class="text-slate-400 font-medium">Selamat datang kembali, Admin!</p>
+    </div>
+    <div class="flex items-center gap-4">
+        <div class="text-right">
+            <p class="font-bold">Admin</p>
+            <p class="text-slate-400 text-sm">Penyelenggara Utama</p>
+        </div>
+        <div class="w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold">
+            AD
+        </div>
+    </div>
+</div>
 <main class="flex-1 p-10 overflow-y-auto">
-        <!-- Header -->
         <header class="flex justify-between items-center mb-10">
             <div>
-                <h1 class="text-3xl font-black">Dashboard Ringkasan</h1>
-                <p class="text-slate-500 font-medium">Selamat datang kembali, Admin!</p>
+                <h1 class="text-3xl font-black">Laporan Transaksi</h1>
+                <p class="text-slate-500 font-medium">Pantau arus kas dan penjualan tiket Anda.</p>
             </div>
-            <div class="flex items-center gap-4">
-                <div class="text-right hidden md:block">
-                    <p class="font-bold">Admin Super</p>
-                    <p class="text-xs text-slate-400">Penyelenggara Utama</p>
-                </div>
-                <div class="w-12 h-12 bg-white rounded-2xl shadow-sm border flex items-center justify-center p-1">
-                    <img src="https://ui-avatars.com/api/?name=Admin+Super&background=6366f1&color=fff"
-                        class="rounded-xl">
-                </div>
+            <div class="flex gap-4">
+                <button
+                    class="px-6 py-3 border-2 border-slate-200 rounded-2xl font-bold hover:bg-white hover:border-indigo-600 hover:text-indigo-600 transition">
+                    Ekspor Excel
+                </button>
+                <button
+                    class="px-6 py-3 bg-indigo-600 text-white rounded-2xl font-bold shadow-lg hover:bg-indigo-700 transition">
+                    Unduh PDF
+                </button>
             </div>
         </header>
 
-        <!-- Stats Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-            <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm">
-                <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                        </path>
-                    </svg>
+        <div class="bg-white rounded-[2.5rem] border border-slate-100 shadow-sm overflow-hidden">
+            <div class="px-8 py-6 bg-slate-50/50 border-b flex flex-wrap gap-4 items-center">
+                <div class="flex-1 min-w-[300px] flex gap-2">
+                    <input type="text" placeholder="Cari Order ID, Nama, atau Email..."
+                        class="flex-1 px-5 py-3 rounded-xl border-slate-200 border bg-white focus:ring-2 focus:ring-indigo-500 outline-none transition uppercase text-sm font-medium tracking-wide">
                 </div>
-                <p class="text-slate-400 text-sm font-bold uppercase mb-1">Total Pendapatan</p>
-                <h3 class="text-2xl font-black">Rp 12.450.000</h3>
-            </div>
-            <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm">
-                <div class="w-12 h-12 bg-green-50 text-green-600 rounded-2xl flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z">
-                        </path>
-                    </svg>
+                <div class="flex gap-2">
+                    <select
+                        class="px-5 py-3 rounded-xl border-slate-200 border bg-white outline-none text-sm font-bold">
+                        <option>Semua Status</option>
+                        <option class="text-green-600">Success</option>
+                        <option class="text-orange-600">Pending</option>
+                        <option class="text-rose-600">Expired</option>
+                    </select>
+                    <select
+                        class="px-5 py-3 rounded-xl border-slate-200 border bg-white outline-none text-sm font-bold">
+                        <option>Bulan Ini</option>
+                        <option>Bulan Lalu</option>
+                        <option>Tahun 2024</option>
+                    </select>
                 </div>
-                <p class="text-slate-400 text-sm font-bold uppercase mb-1">Tiket Terjual</p>
-                <h3 class="text-2xl font-black">1.284</h3>
             </div>
-            <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm">
-                <div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-2xl flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                </div>
-                <p class="text-slate-400 text-sm font-bold uppercase mb-1">Event Aktif</p>
-                <h3 class="text-2xl font-black">8 Event</h3>
-            </div>
-            <div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm">
-                <div class="w-12 h-12 bg-rose-50 text-rose-600 rounded-2xl flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                </div>
-                <p class="text-slate-400 text-sm font-bold uppercase mb-1">Pesanan Pending</p>
-                <h3 class="text-2xl font-black">12 Pesanan</h3>
-            </div>
-        </div>
 
-        <!-- Latest Sales Table -->
-        <div class="bg-white rounded-3xl border border-slate-100 shadow-sm overflow-hidden">
-            <div class="p-8 border-b flex justify-between items-center">
-                <h3 class="font-black text-xl">Transaksi Terakhir</h3>
-                <a href="{{ route('admin.transactions.index') }}" class="text-indigo-600 font-bold hover:underline">Lihat Semua</a>
-            </div>
             <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse">
                     <thead class="bg-slate-50 text-slate-400 uppercase text-[10px] font-black tracking-widest">
                         <tr>
-                            <th class="px-8 py-4">Pembeli</th>
+                            <th class="px-8 py-4">Order ID</th>
+                            <th class="px-8 py-4">Detail Pembeli</th>
                             <th class="px-8 py-4">Event</th>
+                            <th class="px-8 py-4">Tgl Transaksi</th>
                             <th class="px-8 py-4">Status</th>
-                            <th class="px-8 py-4">Total</th>
+                            <th class="px-8 py-4 text-right">Total Tagihan</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y border-t">
-                        <tr class="hover:bg-slate-50 transition">
-                            <td class="px-8 py-6">
-                                <p class="font-bold uppercase tracking-wide text-sm">Donni Prabowo</p>
-                                <p class="text-xs text-slate-400">donni@example.com</p>
-                            </td>
-                            <td class="px-8 py-6 font-medium text-slate-600">Jazz Night 2024</td>
+                        <tr class="hover:bg-slate-50/50 transition">
                             <td class="px-8 py-6">
                                 <span
-                                    class="px-3 py-1 bg-green-100 text-green-700 rounded-lg text-xs font-bold uppercase">Success</span>
+                                    class="font-mono font-bold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-lg text-sm">#TRX-99210</span>
                             </td>
-                            <td class="px-8 py-6 font-black text-indigo-600">Rp 155.000</td>
-                        </tr>
-                        <tr class="hover:bg-slate-50 transition">
                             <td class="px-8 py-6">
-                                <p class="font-bold uppercase tracking-wide text-sm">Maya Sari</p>
-                                <p class="text-xs text-slate-400">maya@example.com</p>
+                                <p class="font-bold text-slate-800">Donni Prabowo</p>
+                                <p class="text-xs text-slate-500">donni@example.com</p>
                             </td>
-                            <td class="px-8 py-6 font-medium text-slate-600">AI & Future Workshop</td>
                             <td class="px-8 py-6">
-                                <span
-                                    class="px-3 py-1 bg-orange-100 text-orange-700 rounded-lg text-xs font-bold uppercase">Pending</span>
+                                <p class="font-medium text-slate-700">Jazz Night 2024</p>
                             </td>
-                            <td class="px-8 py-6 font-black text-indigo-600">Rp 55.000</td>
-                        </tr>
-                        <tr class="hover:bg-slate-50 transition">
-                            <td class="px-8 py-6">
-                                <p class="font-bold uppercase tracking-wide text-sm">Budi Santoso</p>
-                                <p class="text-xs text-slate-400">budi@example.com</p>
+                            <td class="px-8 py-6 text-sm text-slate-500">
+                                26 Mar 2024, 17:45
                             </td>
-                            <td class="px-8 py-6 font-medium text-slate-600">Hackathon 2024</td>
                             <td class="px-8 py-6">
                                 <span
-                                    class="px-3 py-1 bg-slate-100 text-slate-600 rounded-lg text-xs font-bold uppercase">Free</span>
+                                    class="px-3 py-1 bg-green-100 text-green-700 rounded-lg text-xs font-bold uppercase ring-1 ring-green-200">Success</span>
                             </td>
-                            <td class="px-8 py-6 font-black text-indigo-600">Rp 0</td>
+                            <td class="px-8 py-6 text-right font-black text-slate-900">
+                                Rp 155.000
+                            </td>
                         </tr>
+                        <tr class="hover:bg-slate-50/50 transition text-slate-400">
+                            <td class="px-8 py-6">
+                                <span
+                                    class="font-mono font-bold bg-slate-100 px-3 py-1 rounded-lg text-sm">#TRX-99209</span>
+                            </td>
+                            <td class="px-8 py-6">
+                                <p class="font-bold">Maya Sari</p>
+                                <p class="text-xs">maya@example.com</p>
+                            </td>
+                            <td class="px-8 py-6">
+                                <p class="font-medium">AI & Future Workshop</p>
+                            </td>
+                            <td class="px-8 py-6 text-sm">
+                                26 Mar 2024, 15:20
+                            </td>
+                            <td class="px-8 py-6">
+                                <span
+                                    class="px-3 py-1 bg-orange-100 text-orange-700 rounded-lg text-xs font-bold uppercase ring-1 ring-orange-200">Pending</span>
+                            </td>
+                            <td class="px-8 py-6 text-right font-black">
+                                Rp 55.000
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-50/50 transition">
+                            <td class="px-8 py-6">
+                                <span
+                                    class="font-mono font-bold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-lg text-sm">#TRX-99208</span>
+                            </td>
+                            <td class="px-8 py-6">
+                                <p class="font-bold text-slate-800">Budi Santoso</p>
+                                <p class="text-xs text-slate-500">budi@example.com</p>
+                            </td>
+                            <td class="px-8 py-6">
+                                <p class="font-medium text-slate-700">Hackathon 2024</p>
+                            </td>
+                            <td class="px-8 py-6 text-sm text-slate-500">
+                                25 Mar 2024, 10:00
+                            </td>
+                            <td class="px-8 py-6">
+                                <span
+                                    class="px-3 py-1 bg-slate-100 text-slate-600 rounded-lg text-xs font-bold uppercase ring-1 ring-slate-200">Free</span>
+                            </td>
+                            <td class="px-8 py-6 text-right font-black text-slate-900">
+                                Rp 0
+                            </td>
+                        </tr>
+                        <!-- More rows... -->
                     </tbody>
                 </table>
             </div>
+
+            <div class="px-8 py-6 bg-slate-50/50 border-t flex justify-between items-center">
+                <p class="text-sm text-slate-500 font-medium">Menampilkan 3 dari 124 transaksi</p>
+                <div class="flex gap-2">
+                    <button
+                        class="px-4 py-2 border rounded-xl hover:bg-white transition text-sm font-bold opacity-50 cursor-not-allowed">Previous</button>
+                    <button class="px-4 py-2 bg-indigo-600 text-white rounded-xl shadow-md text-sm font-bold">1</button>
+                    <button class="px-4 py-2 border rounded-xl hover:bg-white transition text-sm font-bold">2</button>
+                    <button
+                        class="px-4 py-2 border rounded-xl hover:bg-white transition text-sm font-bold">Next</button>
+                </div>
+            </div>
         </div>
     </main>
+@endsection

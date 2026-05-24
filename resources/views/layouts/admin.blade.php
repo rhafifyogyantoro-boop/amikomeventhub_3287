@@ -16,17 +16,22 @@
         </div>
         <nav class="flex-1 space-y-2">
             <p class="text-[10px] font-bold uppercase tracking-widest text-indigo-400 mb-4 px-2">Main Menu</p>
-            <a href="{{ route('admin.dashboard') }}"
-   class="flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition
-   {{ request()->routeIs('admin.dashboard') ? 'bg-indigo-800 text-white' : 'hover:bg-indigo-800' }}">
-    Dashboard
-</a>
+                <a href="{{ route('admin.dashboard') }}"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition
+                {{ request()->routeIs('admin.dashboard') ? 'bg-indigo-800 text-white' : 'hover:bg-indigo-800' }}">
+                    Dashboard
+                </a>
 
-<a href="{{ route('admin.events.index') }}"
-   class="flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition
-   {{ request()->routeIs('admin.events.*') ? 'bg-indigo-800 text-white' : 'hover:bg-indigo-800' }}">
-    Kelola Event
-</a>
+                <a href="{{ route('admin.events.index') }}"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition
+                {{ request()->routeIs('admin.events.*') ? 'bg-indigo-800 text-white' : 'hover:bg-indigo-800' }}">
+                    Kelola Event
+                </a>
+                <a href="{{ route('admin.transactions.index') }}"
+                class="flex items-center gap-3 px-4 py-3 rounded-xl font-bold transition
+                {{ request()->routeIs('admin.transactions.*') ? 'bg-indigo-800 text-white' : 'hover:bg-indigo-800' }}">
+                    Laporan Transaksi
+                </a>
         </nav>
     </aside>
 
