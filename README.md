@@ -33,7 +33,7 @@ https://amikomeventhub-3287-main-lewupy.free.laravel.cloud/
 | Fitur | Link |
 |-------|------|
 | Kelola Events | https://amikomeventhub-3287-main-lewupy.free.laravel.cloud/admin/events |
-| Create Event | https://amikomeventhub-3287-main-lewupy.free.laravel.cloud/admin/events/create |
+| Create Event | https://amikomeventhub-3287-main-lewupy.free.laravel.cloud/admin/events/creat |
 | Edit Event | https://amikomeventhub-3287-main-lewupy.free.laravel.cloud/admin/events/1/edit |
 
 ---
