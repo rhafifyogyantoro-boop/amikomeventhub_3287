@@ -1,92 +1,279 @@
 @extends('layouts.admin')
+@section('title', 'Kelola Kategori - Admin')
+@section('page_title', 'Kelola Kategori')
+@section('page_subtitle', 'Atur dan kelola kategori event Anda di sini.')
 
 @section('content')
-<main class="flex-1 p-10 overflow-y-auto">
-    <header class="flex justify-between items-center mb-10">
-        <div>
-            <h1 class="text-3xl font-black">Kelola Kategori</h1>
-            <p class="text-slate-500 font-medium">Atur kategori event seperti Seminar, Konser, Workshop.</p>
-        </div>
-        <button
-            class="px-6 py-3 bg-indigo-600 text-white rounded-2xl font-bold shadow-lg shadow-indigo-100 hover:bg-indigo-700 active:scale-95 transition">
-            + Tambah Kategori
+
+{{-- Flash Messages --}}
+@if(session('success'))
+    <div id="flash-success"
+        class="mb-6 flex items-center gap-3 px-5 py-4 bg-emerald-50 border border-emerald-200 text-emerald-700 rounded-2xl shadow-sm">
+        <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+        </svg>
+        <span class="font-semibold text-sm">{{ session('success') }}</span>
+        <button onclick="document.getElementById('flash-success').remove()"
+            class="ml-auto text-emerald-400 hover:text-emerald-600 transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
         </button>
-    </header>
-
-    <div class="bg-white rounded-[2.5rem] border border-slate-100 shadow-sm overflow-hidden">
-        <div class="px-8 py-6 bg-slate-50/50 border-b">
-            <input type="text" placeholder="Cari kategori..."
-                class="w-full px-5 py-3 rounded-xl border-slate-200 border bg-white focus:ring-2 focus:ring-indigo-500 outline-none transition">
-        </div>
-
-        <div class="overflow-x-auto">
-            <table class="w-full text-left border-collapse">
-                <thead class="bg-slate-50 text-slate-400 uppercase text-[10px] font-black tracking-widest">
-                    <tr>
-                        <th class="px-8 py-4 w-16">No</th>
-                        <th class="px-8 py-4">Nama Kategori</th>
-                        <th class="px-8 py-4">Deskripsi</th>
-                        <th class="px-8 py-4">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y border-t">
-                    {{-- Dummy Data --}}
-                    <tr class="hover:bg-slate-50/50 transition">
-                        <td class="px-8 py-6 font-bold text-slate-400">1</td>
-                        <td class="px-8 py-6 font-black text-slate-800">Seminar</td>
-                        <td class="px-8 py-6 text-slate-500">Kategori untuk acara edukasi dan presentasi.</td>
-                        <td class="px-8 py-6">
-                            <div class="flex gap-2">
-                                <button
-                                    class="p-2.5 bg-indigo-50 text-indigo-600 rounded-xl hover:bg-indigo-600 hover:text-white transition">
-                                    Edit
-                                </button>
-                                <button
-                                    class="p-2.5 bg-rose-50 text-rose-600 rounded-xl hover:bg-rose-600 hover:text-white transition">
-                                    Hapus
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr class="hover:bg-slate-50/50 transition">
-                        <td class="px-8 py-6 font-bold text-slate-400">2</td>
-                        <td class="px-8 py-6 font-black text-slate-800">Konser</td>
-                        <td class="px-8 py-6 text-slate-500">Kategori untuk acara musik dan hiburan.</td>
-                        <td class="px-8 py-6">
-                            <div class="flex gap-2">
-                                <button
-                                    class="p-2.5 bg-indigo-50 text-indigo-600 rounded-xl hover:bg-indigo-600 hover:text-white transition">
-                                    Edit
-                                </button>
-                                <button
-                                    class="p-2.5 bg-rose-50 text-rose-600 rounded-xl hover:bg-rose-600 hover:text-white transition">
-                                    Hapus
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr class="hover:bg-slate-50/50 transition">
-                        <td class="px-8 py-6 font-bold text-slate-400">3</td>
-                        <td class="px-8 py-6 font-black text-slate-800">Workshop</td>
-                        <td class="px-8 py-6 text-slate-500">Kategori untuk pelatihan dan praktik langsung.</td>
-                        <td class="px-8 py-6">
-                            <div class="flex gap-2">
-                                <button
-                                    class="p-2.5 bg-indigo-50 text-indigo-600 rounded-xl hover:bg-indigo-600 hover:text-white transition">
-                                    Edit
-                                </button>
-                                <button
-                                    class="p-2.5 bg-rose-50 text-rose-600 rounded-xl hover:bg-rose-600 hover:text-white transition">
-                                    Hapus
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
     </div>
-</main>
+@endif
+
+@if(session('error'))
+    <div id="flash-error"
+        class="mb-6 flex items-center gap-3 px-5 py-4 bg-rose-50 border border-rose-200 text-rose-700 rounded-2xl shadow-sm">
+        <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        <span class="font-semibold text-sm">{{ session('error') }}</span>
+        <button onclick="document.getElementById('flash-error').remove()"
+            class="ml-auto text-rose-400 hover:text-rose-600 transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+    </div>
+@endif
+
+{{-- Top Bar: Search + Tambah --}}
+<div class="mb-5 flex flex-col sm:flex-row gap-3 items-stretch sm:items-center justify-between">
+
+    {{-- Search --}}
+    <form method="GET" action="{{ route('admin.categories.index') }}" class="flex-1 max-w-md">
+        <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/>
+                </svg>
+            </span>
+            <input
+                type="text"
+                name="search"
+                value="{{ request('search') }}"
+                placeholder="Cari kategori..."
+                class="w-full pl-11 pr-10 py-3 rounded-2xl border border-slate-200 bg-white text-sm
+                       text-slate-700 placeholder-slate-400 shadow-sm focus:outline-none
+                       focus:ring-2 focus:ring-indigo-300 focus:border-indigo-400 transition"
+            />
+            @if(request('search'))
+                <a href="{{ route('admin.categories.index') }}"
+                    class="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-600 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </a>
+            @endif
+        </div>
+    </form>
+
+    {{-- Tombol Tambah --}}
+    <a href="{{ route('admin.categories.create') }}"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-2xl font-bold
+               shadow-lg shadow-indigo-100 hover:bg-indigo-700 active:scale-95 transition whitespace-nowrap">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+        </svg>
+        Tambah Kategori
+    </a>
+</div>
+
+{{-- Info hasil pencarian --}}
+@if(request('search'))
+    <div class="mb-4 flex items-center gap-2 text-sm text-slate-500">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+        Menampilkan hasil untuk
+        <span class="font-bold text-indigo-600">"{{ request('search') }}"</span>
+        — {{ $categories->total() }} kategori ditemukan
+    </div>
+@endif
+
+{{-- Tabel Kategori --}}
+<div class="bg-white rounded-[2.5rem] border border-slate-100 shadow-sm overflow-hidden">
+    <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+            <thead class="bg-slate-50 text-slate-400 uppercase text-[10px] font-black tracking-widest">
+                <tr>
+                    <th class="px-8 py-4 w-16">No</th>
+                    <th class="px-8 py-4">Kategori</th>
+                    <th class="px-8 py-4 w-32 text-center">Aksi</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y border-t">
+                @forelse($categories as $index => $category)
+                    <tr class="hover:bg-slate-50/50 transition">
+
+                        {{-- No --}}
+                        <td class="px-8 py-5 font-bold text-slate-400">
+                            {{ $categories->firstItem() + $index }}
+                        </td>
+
+                        {{-- Nama Kategori --}}
+                        <td class="px-8 py-5">
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-xl bg-indigo-100 flex items-center justify-center flex-shrink-0">
+                                    <span class="text-indigo-600 font-black text-sm">
+                                        {{ strtoupper(substr($category->name, 0, 1)) }}
+                                    </span>
+                                </div>
+                                <div>
+                                    <p class="font-black text-slate-800">{{ $category->name }}</p>
+                                    <p class="text-xs text-slate-400 font-mono mt-0.5">{{ $category->slug }}</p>
+                                </div>
+                            </div>
+                        </td>
+
+                        {{-- Aksi --}}
+                        <td class="px-8 py-5">
+                            <div class="flex items-center justify-center gap-2">
+
+                                {{-- Edit --}}
+                                <a href="{{ route('admin.categories.edit', $category->id) }}"
+                                    class="p-2.5 bg-indigo-50 text-indigo-600 rounded-xl hover:bg-indigo-600 hover:text-white transition"
+                                    title="Edit kategori">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5
+                                               m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                                    </svg>
+                                </a>
+
+                                {{-- Hapus --}}
+                                <button
+                                    onclick="openDeleteModal({{ $category->id }}, '{{ addslashes($category->name) }}')"
+                                    class="p-2.5 bg-rose-50 text-rose-600 rounded-xl hover:bg-rose-600 hover:text-white transition"
+                                    title="Hapus kategori">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0
+                                               01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1
+                                               0 00-1 1v3M4 7h16"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="3" class="px-8 py-16 text-center">
+                            <div class="flex flex-col items-center gap-3">
+                                <div class="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center">
+                                    <svg class="w-7 h-7 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010
+                                               2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                                    </svg>
+                                </div>
+                                <p class="text-slate-400 font-semibold text-sm">
+                                    @if(request('search'))
+                                        Tidak ada kategori yang cocok dengan "{{ request('search') }}"
+                                    @else
+                                        Belum ada kategori yang ditambahkan.
+                                    @endif
+                                </p>
+                                @if(request('search'))
+                                    <a href="{{ route('admin.categories.index') }}"
+                                        class="text-indigo-500 text-xs hover:underline">
+                                        Tampilkan semua kategori
+                                    </a>
+                                @endif
+                            </div>
+                        </td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
+    </div>
+
+    {{-- Pagination --}}
+    @if($categories->hasPages())
+        <div class="px-8 py-5 bg-slate-50/50 border-t">
+            {{ $categories->appends(request()->query())->links() }}
+        </div>
+    @endif
+</div>
+
+{{-- Modal Hapus --}}
+<div id="modal-hapus"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4"
+    role="dialog" aria-modal="true">
+    <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm"
+         onclick="closeModal('modal-hapus')"></div>
+
+    <div class="relative w-full max-w-sm bg-white rounded-3xl shadow-2xl p-8 animate-modal">
+        <div class="flex flex-col items-center text-center gap-4 mb-6">
+            <div class="w-16 h-16 rounded-2xl bg-rose-100 flex items-center justify-center">
+                <svg class="w-8 h-8 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0
+                           01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1
+                           0 00-1 1v3M4 7h16"/>
+                </svg>
+            </div>
+            <div>
+                <h2 class="text-lg font-black text-slate-800">Hapus Kategori?</h2>
+                <p class="text-sm text-slate-500 mt-1">
+                    Anda akan menghapus kategori
+                    <span id="hapus-name" class="font-bold text-slate-700"></span>.
+                    Tindakan ini tidak dapat dibatalkan.
+                </p>
+            </div>
+        </div>
+
+        <form id="form-hapus" action="" method="POST">
+            @csrf
+            @method('DELETE')
+            <div class="flex gap-3">
+                <button type="button" onclick="closeModal('modal-hapus')"
+                    class="flex-1 px-5 py-3 rounded-xl border border-slate-200 text-slate-600 text-sm font-semibold hover:bg-slate-50 transition">
+                    Batal
+                </button>
+                <button type="submit"
+                    class="flex-1 px-5 py-3 rounded-xl bg-rose-500 text-white text-sm font-bold shadow-lg shadow-rose-100 hover:bg-rose-600 active:scale-95 transition">
+                    Ya, Hapus
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    .animate-modal {
+        animation: modalIn 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+    @keyframes modalIn {
+        from { opacity: 0; transform: scale(0.92) translateY(16px); }
+        to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+</style>
+
+<script>
+    function openDeleteModal(id, name) {
+        document.getElementById('hapus-name').textContent = `"${name}"`;
+        document.getElementById('form-hapus').action = `/admin/categories/${id}`;
+        const modal = document.getElementById('modal-hapus');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.classList.add('overflow-hidden');
+    }
+
+    function closeModal(id) {
+        const modal = document.getElementById(id);
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeModal('modal-hapus');
+    });
+</script>
+
 @endsection
+

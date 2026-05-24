@@ -1,21 +1,6 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="flex justify-between items-center mb-10">
-    <div>
-        <h1 class="text-3xl font-black">Dashboard</h1>
-        <p class="text-slate-400 font-medium">Selamat datang kembali, Admin!</p>
-    </div>
-    <div class="flex items-center gap-4">
-        <div class="text-right">
-            <p class="font-bold">Admin</p>
-            <p class="text-slate-400 text-sm">Penyelenggara Utama</p>
-        </div>
-        <div class="w-10 h-10 bg-indigo-600 text-white rounded-full flex items-center justify-center font-bold">
-            AD
-        </div>
-    </div>
-</div>
 <main class="flex-1 p-10 overflow-y-auto">
         <header class="flex justify-between items-center mb-10">
             <div>
