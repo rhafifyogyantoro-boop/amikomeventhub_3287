@@ -37,6 +37,7 @@ https://amikomeventhub-3287-main-lewupy.free.laravel.cloud/
 | Edit Event | https://amikomeventhub-3287-main-lewupy.free.laravel.cloud/admin/events/1/edit |
 
 ### 4. Tugas 5 DB
+|-------|------|
 | Login Admin | https://amikomeventhub-3287-main-lewupy.free.laravel.cloud/admin/login |
 ---
 ## About Laravel
