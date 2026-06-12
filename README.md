@@ -36,6 +36,11 @@ https://amikomeventhub-3287-main-lewupy.free.laravel.cloud/
 | Create Event | https://amikomeventhub-3287-main-lewupy.free.laravel.cloud/admin/events/create |
 | Edit Event | https://amikomeventhub-3287-main-lewupy.free.laravel.cloud/admin/events/1/edit |
 
+### 4. Tugas 8 DB saya comit (tugas 5)
+
+| Fitur | Link |
+|-------|------|
+| Login Admin | https://amikomeventhub-3287-main-lewupy.free.laravel.cloud/admin/login |
 ---
 ## About Laravel
 
