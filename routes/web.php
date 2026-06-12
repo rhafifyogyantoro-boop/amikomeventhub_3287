@@ -23,9 +23,12 @@ Route::get('/katalog', function () { return view('katalog'); });
 Route::get('/bantuan', function () { return view('bantuan'); });
 
 Route::get('/app', [HomeController::class, 'index']);
-Route::get('/event-detail', [EventController::class, 'show']);
-Route::get('/checkout', [EventController::class, 'checkout']);
+Route::get('/events/{event}', [EventController::class, 'show'])->name('events.show');
 Route::get('/ticket', [TicketController::class, 'show']);
+
+// Checkout (Pertemuan 10)
+Route::get('/checkout/{event}', [App\Http\Controllers\CheckoutController::class, 'create'])->name('checkout.create');
+Route::post('/checkout/{event}', [App\Http\Controllers\CheckoutController::class, 'store'])->name('checkout.store');
 
 // ✅ Redirect /login ke admin login
 Route::get('/login', function () {

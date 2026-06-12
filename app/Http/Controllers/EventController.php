@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
-    public function show()
+    public function show(Event $event)
     {
-        return view ('event-detail');
-    }
-
-    public function checkout()
-    {
-        return view ('checkout');
+        $categories = Category::all();
+        return view('event-detail', compact('event', 'categories'));
     }
 }
